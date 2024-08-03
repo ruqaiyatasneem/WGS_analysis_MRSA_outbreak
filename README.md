@@ -5,4 +5,5 @@ Snippy pipeline has been used for finding the variants in ST2371 isolates and ST
 Since the tools used are different from the original paper, the results vary for some isolates whereas remain the same for the rest.
 
 The dendrogram and phylogenetic tree was constructed based on SNP dist matrix
+
 Will Upload data from other pipelines soon :)
