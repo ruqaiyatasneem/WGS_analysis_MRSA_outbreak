@@ -11,4 +11,4 @@ plot(hc)
 
 #For conversion of snp dis matrix into newick file for iTOL
 tree <- nj(dist_matrix)
-write.tree(tree, file="your_tree_file.newick")
+write.tree(tree, file="core_snps_tree_file.newick")
