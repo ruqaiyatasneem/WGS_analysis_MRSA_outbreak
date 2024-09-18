@@ -49,4 +49,5 @@ do
 
       # exclude
        gatk SelectVariants --exclude-filtered -V ${SAMPLE}_filtered_variants-snp.vcf -O ${SAMPLE}_analysis-ready.vcf
-
+       echo "Pipeline completed for sample: $SAMPLE"
+done
