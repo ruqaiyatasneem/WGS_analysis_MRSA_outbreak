@@ -17,15 +17,15 @@ SAMPLES=("ERR070040" "ERR070033" "ERR070034" "ERR070036" "ERR070039" "ERR070042"
 for SAMPLE in "${SAMPLES[@]}"
 do
 	# input files
-	READ1="${SAMPLE}_1.fastq.gz
-	READ2="${SAMPLE}_2.fastq.gz
+	READ1="${SAMPLE}_1.fastq.gz"
+	READ2="${SAMPLE}_2.fastq.gz"
 
         bwa mem -R "@RG\tID:$SAMPLE\tLB:$SAMPLE\tPL:ILLUMINA\tPM:MISEQ\tSM:$SAMPLE" $REF $READ1 $READ2 > ${SAMPLE}_aligned.sam 
 
         gatk MarkDuplicatesSpark -I ${SAMPLE}_aligned.sam -O ${SAMPLE}_sorted_dedup_reads.bam
 
        # collect alignment and insert size metrics
-        gatk CollectAlignmentSummaryMetrics -R $REF -I ${SAMPLE}_sorted_dedup_reads.bam -O ${SAMPLE}_insertmetrics.txt 
+        gatk CollectAlignmentSummaryMetrics -R $REF -I ${SAMPLE}_sorted_dedup_reads.bam -O ${SAMPLE}_alignmentmetrics.txt 
         gatk CollectInsertSizeMetrics -I ${SAMPLE}_sorted_dedup_reads.bam -O ${SAMPLE}_insertmetrics.txt -H ${SAMPLE}_insert_size_histogram.pdf
 
       # variant caling
